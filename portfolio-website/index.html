@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rahman | Data Enthusiast Portfolio</title>
+<meta name="description" content="Portfolio of Ahmad Fadliansyah Rahman: business analysis, business intelligence, and data-driven solutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  /* 1. Beri ruang di atas untuk kepala pada pembungkus utama (.journey), 
+        dan buat kedua kolom (kotak ungu & kartu About) sejajar atas-bawah */
+  .journey {
+    overflow: visible !important;
+    align-items: stretch !important; /* Membuat tinggi kotak ungu & kartu About otomatis sama rata atas-bawah */
+    gap: 24px !important;
+    margin-top: 65px !important;     /* Ruang untuk kepala yang nongol ditaruh di sini agar kedua kotak tetap sejajar */
+  }
+
+  /* 2. Kotak ungu mengikuti tinggi kartu About (tanpa margin-top sendiri agar tidak turun sebelah) */
+  .avatar-panel {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    height: auto !important;         /* Otomatis mengikuti tinggi kartu About */
+    min-height: 240px !important;
+    margin: 0 !important;            /* Reset margin agar rata atas-bawah dengan kartu About */
+    background: transparent !important;
+    overflow: visible !important;
+    clip-path: none !important;
+    box-shadow: none !important;
+  }
+
+  /* 3. Samakan juga margin kartu About agar atas-bawahnya benar-benar rata dengan kotak ungu */
+  .journey .card {
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* 4. Latar kotak ungu memenuhi penuh area .avatar-panel dari atas sampai bawah */
+  .avatar-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #2b0548 0%, #1e0066 100%);
+    border-radius: 28px;
+    z-index: 1;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  /* 5. Karakter diperbesar, kepala keluar di atas, dan bagian bawah terpotong tepat di dasar kotak ungu */
+  .avatar-panel img {
+    position: absolute !important;
+    z-index: 2;
+    left: 50% !important;
+    top: -80px !important;           /* Seberapa tinggi kepala keluar dari garis atas kotak ungu */
+    transform: translateX(-50%) !important;
+    width: 500px !important;         /* Ukuran zoom karakter */
+    max-width: none !important;
+    height: auto !important;
+    object-fit: contain !important;
+
+    /* Memotong badan bagian bawah tepat mengikuti tinggi kotak ungu + 80px bagian atas */
+    clip-path: inset(0px 0px calc(100% - (100% * 0 + 320px)) 0px);
+  }
+  /* Merapikan tampilan bullet points pada timeline */
+  .mini-points {
+    margin: 8px 0 0 0;
+    padding: 10px 12px 10px 24px;
+    list-style-type: disc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  .mini-points li {
+    margin-bottom: 6px;
+  }
+
+  .mini-points li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Merapikan tampilan bullet points pada timeline */
+  .mini-points {
+    margin: 8px 0 0 0 !important;
+    padding: 10px 12px 10px 24px !important;
+    list-style-type: disc !important; /* Membuat titik bullet hitam penuh (bukan lingkaran kosong) */
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+
+  .mini-points li {
+    position: static !important;
+    padding: 0 !important;
+    margin: 0 0 6px 0 !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-size: 12.5px !important;
+    line-height: 1.45 !important;
+    display: list-item !important;
+    list-style-type: disc !important;
+  }
+
+  .mini-points li:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* KUNCI UTAMA: Mematikan bulatan biru & kuning bawaan .mini li pada sub-poin */
+  .mini-points li::before,
+  .mini-points li::after {
+    content: none !important;
+    display: none !important;
+  }
+</style>
+<link rel="stylesheet" href="assets/motion.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body id="home">
+
+<nav class="nav" aria-label="Main">
+  <ul>
+    <li><a href="index.html" aria-current="page">Home</a></li>
+    <li><a href="about.html">About Rahman</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="project.html">Project</a></li>
+    <li><a href="activities.html">Activities</a></li>
+  </ul>
+</nav>
+
+<main>
+
+
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="hello">Hello !</p>
+        <h1>I’m <mark>Rahman</mark><br>Data Enthusiast</h1>
+        <p class="tagline">Combining Technical Expertise and Business Understanding to Create Data-Driven Solutions</p>
+        <a class="cta" href="assets/CV_Ahmad_Fadliansyah_Rahman.pdf" target="_blank" rel="noopener">Rahman CV <span aria-hidden="true">→</span></a>
+      </div>
+      <img src="assets/hero.png" alt="Illustration of Rahman" width="440">
+    </div>
+  </div>
+
+  <div class="block" id="journey">
+    <div class="wrap">
+      <h2 class="title">Journey of <mark>Rahman</mark></h2>
+      <div class="bar"></div>
+      <div class="journey">
+        <div class="avatar-panel"><img src="assets/about-avatar.png" alt="Illustration of Rahman in a batik shirt" loading="lazy"></div>
+        <div class="card">
+          <span class="pill">About</span>
+          <p>Final-year Business Management student with hands-on experience in market research, business
+analysis, and project execution. Ex-intern at Telkomsel in the SME GTM team, working with business
+data and dashboards to support data driven decision-making. Experienced in transforming data
+into actionable insights through case studies and real-world projects using SQL, Python, Power BI,
+and Google Looker Studio. As a Founder, I have worked closely with cross-functional teams to
+deliver data-driven solutions, identify performance gaps, and support strategic decision-making
+while bridging business needs with analytical insights to produce measurable outcomes</p>
+        </div>
+      </div>
+      <ol class="mini" aria-label="Experience timeline">
+        <li>
+          <b>2023</b>
+          <h3>Central Computer Improvement</h3>
+          <small>Data Researcher · Feb to Dec 2023</small>
+          <ul class="mini-points">
+            <li>Analyzed data from multiple datasets to identify trends and key insights.</li>
+            <li>Actively contributed actionable insights and shared best practices during weekly team meetings, resulting in improved team proficiency.</li>
+          </ul>
+        </li>
+        <li>
+          <b>2024</b>
+          <h3>Starticas</h3>
+          <small>Founder · Mar 2024 to Dec 2025</small>
+          <ul class="mini-points">
+            <li>Led a cross-disciplinary team of 20 members to deliver social-impact initiatives.</li>
+            <li>Selected for incubation at Bandung Techno Park and secured expressions of interest from 3 external organizations.</li>
+          </ul>
+        </li>
+        <li>
+          <b>2025</b>
+          <h3>Bank Muamalat x Rakamin</h3>
+          <small>Business Intelligence Intern · Oct to Nov 2025</small>
+          <ul class="mini-points">
+            <li>Analyzed 10K+ transactions using BigQuery and Looker Studio, identifying a 7.8% revenue decline.</li>
+            <li>Proposed 4 data-backed retention strategies to boost repeat orders by 20% and average order value by 10%.</li>
+          </ul>
+        </li>
+        <li>
+          <b>2026</b>
+          <h3>Telkomsel</h3>
+          <small>SME GTM Intern · Feb to Jul 2026</small>
+          <ul class="mini-points">
+            <li>Built 3 dashboards across 10,000+ datasets and scraped 100,000+ SME records to identify market opportunities.</li>
+            <li>Automated customer classification using n8n and streamlined contract renewals with Power Automate.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Why Me: interactive version of the video -->
+  <div class="block" id="why">
+    <div class="wrap" data-tabs>
+      <div class="center">
+        <h2 class="title">Why Me?</h2>
+        <div class="bar"></div>
+        <p class="lead">Exploring New Possibilities through Curiosity while Transforming Data into Actionable Business Solutions</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Why me">
+        <button class="tab" role="tab" id="wm-1" aria-controls="wp-1" aria-selected="true">Curiosity</button>
+        <button class="tab" role="tab" id="wm-2" aria-controls="wp-2" aria-selected="false" tabindex="-1">Data Based</button>
+        <button class="tab" role="tab" id="wm-3" aria-controls="wp-3" aria-selected="false" tabindex="-1">Agile</button>
+      </div>
+      <div class="panel" role="tabpanel" id="wp-1" aria-labelledby="wm-1"><p>A strong drive to explore new business opportunities and expand knowledge across business strategy, data analytics, and project management. Demonstrated through startup incubation programs, market research involving 300+ respondents, and 180+ hours of professional training in Google Project Management and Data Science. This curiosity has translated into hands-on experience developing go-to-market strategies, validating business concepts, and leading startup initiatives from early-stage ideas toward practical implementation.</p></div>
+      <div class="panel" role="tabpanel" id="wp-2" aria-labelledby="wm-2" hidden><p>A data-driven approach to transforming complex information into actionable business insights and strategic decisions. Experienced in scraping and analyzing 100,000+ SME records, developing sales performance dashboards, and mapping Account Managers to revenue opportunities across Indonesian markets. Further demonstrated through the analysis of 10,000+ transactions, identifying a 7.8% revenue decline associated with low retention and proposing 4 strategies projected to increase repeat orders by 20% and average order value by 10%.</p></div>
+      <div class="panel" role="tabpanel" id="wp-3" aria-labelledby="wm-3" hidden><p>Proven adaptability in streamlining business processes, coordinating cross-functional operations, and translating business requirements into practical solutions. Developed n8n automation to classify customer needs into 5 categories and route emails to the responsible divisions and built Power Automate workflows for contract renewal processes. Complemented by experience leading a multidisciplinary team of 20 members at Starticas.</p></div>
+    </div>
+
+    <!-- Rahman's Focus Area: interactive version of the video -->
+    <div class="wrap focus" data-tabs id="focus">
+      <div>
+        <h2>Rahman’s<br><mark>Focus Area</mark></h2>
+        <img class="focus-img" id="focus-img" src="assets/focus-ba.jpg" alt="" width="260" height="338">
+      </div>
+      <div>
+        <div class="roles" role="tablist" aria-label="Focus area">
+          <button class="role-tab" role="tab" id="fa-1" aria-controls="fp-1" aria-selected="true" data-img="assets/focus-ba.jpg">Business Analyst</button>
+          <button class="role-tab" role="tab" id="fa-2" aria-controls="fp-2" aria-selected="false" tabindex="-1" data-img="assets/focus-da.jpg">Data Analyst</button>
+          <button class="role-tab" role="tab" id="fa-3" aria-controls="fp-3" aria-selected="false" tabindex="-1" data-img="assets/focus-bi.jpg">Business Intelligence</button>
+        </div>
+
+        <div class="rolepanel" role="tabpanel" id="fp-1" aria-labelledby="fa-1">
+          <ul class="skillchips"><li>Process Improvement</li><li>Business Requirement &amp; Analysis</li><li>Project Management</li><li>Problem Solving &amp; Critical Thinking</li><li>Business Process Modeling</li><li>Design Thinking</li></ul>
+          <p>Translating business requirements into actionable solutions through process improvement, workflow automation, and cross-functional collaboration. Experienced in developing 3 sales dashboards at Telkomsel, automating customer classification across 5 categories using n8n, and streamlining contract renewal processes with Power Automate.</p>
+          <p>Skilled in business requirements analysis, process mapping, and project coordination to identify operational gaps and improve workflows. Supported by experience leading a multidisciplinary team of 20 members and developing go-to-market strategies to align business objectives with practical solutions.</p>
+          <h3>Tools</h3><div class="bar"></div>
+          <img class="tools" src="assets/tools-ba.jpg" alt="Tools: n8n, Power Automate, draw.io, Word, Trello, Notion" width="440" loading="lazy">
+        </div>
+
+        <div class="rolepanel" role="tabpanel" id="fp-2" aria-labelledby="fa-2" hidden>
+          <ul class="skillchips"><li>Data Visualization</li><li>Data Cleaning &amp; Preprocessing</li><li>SQL</li><li>Exploratory Data Analysis (EDA)</li><li>Data Collection &amp; Cleaning</li><li>Python</li></ul>
+          <p>Transforming raw data into meaningful insights through data collection, cleaning, exploratory analysis, and visualization. Experienced in processing 100,000+ SME records, analyzing 10,000+ transactions, and conducting market research involving 300+ respondents to identify trends and business opportunities.</p>
+          <p>Proficient in SQL, Python, Microsoft Excel, and Google Colab to support end-to-end analytical workflows. Identified a 7.8% revenue decline associated with low retention and proposed 4 data-driven strategies projected to increase repeat orders by 20% and average order value by 10%.</p>
+          <h3>Tools</h3><div class="bar"></div>
+          <img class="tools" src="assets/tools-da.jpg" alt="Tools: Jupyter, Excel, MySQL, Google Colab, Python, BigQuery" width="440" loading="lazy">
+        </div>
+
+        <div class="rolepanel" role="tabpanel" id="fp-3" aria-labelledby="fa-3" hidden>
+          <ul class="skillchips"><li>BI Solution Development</li><li>Dashboard Development</li><li>SQL</li><li>KPI &amp; Performance Monitoring</li><li>Data Integration</li><li>ETL Pipelines</li></ul>
+          <p>Developing data-driven reporting solutions to support KPI monitoring, sales performance evaluation, and strategic decision-making. Experienced in building 3 performance dashboards using Google Looker Studio, monitoring Account Manager performance, and analyzing 100,000+ SME opportunity records to identify pipeline trends and revenue potential.</p>
+          <p>Proficient in Google Looker Studio, Google BigQuery, and Microsoft Excel for dashboard development and performance reporting. Additional experience mapping Account Managers to market revenue opportunities across Indonesia and translating business metrics into actionable insights.</p>
+          <h3>Tools</h3><div class="bar"></div>
+          <img class="tools" src="assets/tools-bi.jpg" alt="Tools: Looker Studio, Excel, MySQL, Power BI, BigQuery" width="440" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</main>
+
+<section class="ending" aria-labelledby="collab">
+  <div class="wrap">
+   <div class="ending-grid">
+    <div>
+      <h2 class="title" id="collab">Let’s Collaborate!</h2>
+      <div class="bar" style="margin-bottom:18px"></div>
+      <p class="lead" style="margin-bottom:24px">Business Analyst and Business Intelligence Enthusiast</p>
+      <ul class="contacts">
+        <li><a class="c" href="https://github.com/FasaH-1" target="_blank" rel="noopener"><span class="ic" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></span><span><span class="clab">GitHub</span><span class="val">github.com/FasaH-1</span></span></a></li>
+        <li><!-- Replace # with your LinkedIn profile link --><a class="c" href="https://www.linkedin.com/in/fadliansyahrahman" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">in</span><span><span class="clab">LinkedIn</span><span class="val">Ahmad Fadliansyah Rahman</span></span></a></li>
+        <li><a class="c" href="mailto:fadliansyahfadel01@gmail.com"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><span class="clab">Email</span><span class="val">fadliansyahfadel01@gmail.com</span></span></a></li>
+        <li><div class="c"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><span class="clab">Location</span><span class="val">South Jakarta, Jakarta</span></span></div></li>
+      </ul>
+    </div>
+    <figure class="quote"><p>Success in business is not about how much money you make but about the difference you make in people’s lives.”</p></figure>
+   </div>
+    <nav class="pager" aria-label="Page navigation"><a class="btn next" href="about.html"><span><small>Next</small>About Rahman</span><span class="arr" aria-hidden="true">→</span></a></nav>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© 2026 Ahmad Fadliansyah Rahman. All rights reserved.</span>
+    <a href="#home">Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
+</body>
+</html>
