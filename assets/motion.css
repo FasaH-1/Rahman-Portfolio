@@ -1,0 +1,85 @@
+/* ===== Motion: subtle, on top of the existing design. Remove the two links in each page to turn it off. ===== */
+:root { --ease: cubic-bezier(.2, .7, .2, 1); }
+/* Stops the avatar images (wider than their panels) and slide-in effects from creating a sideways scrollbar */
+body { overflow-x: clip; }
+
+/* Page load and page leave */
+body { animation: pageIn .45s ease both; }
+html.leaving body { opacity: 0; transition: opacity .18s ease; }
+@keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+.nav { animation: navIn .5s var(--ease) both; }
+@keyframes navIn { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: none; } }
+
+/* Scroll reveal (classes are added by motion.js) */
+.js .rv { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: var(--d, 0ms); }
+.js .rv.rv-fade { transform: none; }
+.js .rv.rv-right { transform: translateX(48px); }
+.js .rv.rv-pop { transform: scale(.9); transition-duration: .45s; }
+.js .rv.in { opacity: 1; transform: none; }
+
+/* Underline bars draw in, name highlight sweeps in */
+.js .bar.rv { transform-origin: left; transform: scaleX(0); transition: transform .7s var(--ease) .15s; }
+.js .bar.rv.in { transform: scaleX(1); opacity: 1; }
+.js mark { background: linear-gradient(var(--yellow), var(--yellow)) no-repeat left center / 0% 100%; transition: background-size .7s var(--ease) .3s; }
+.js .rv.in mark, .js .in mark { background-size: 100% 100%; }
+
+/* Hero avatar floats very slowly once it has arrived */
+.hero img.in { animation: float 7s ease-in-out 1s infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* Timeline: line draws down, dots pop in */
+.js .item .dotcol::before { transform: scaleY(0); transform-origin: top; transition: transform .9s ease .3s; }
+.js .item.in .dotcol::before { transform: scaleY(1); }
+.js .item .dot { transform: scale(0); transition: transform .5s cubic-bezier(.3, 1.7, .5, 1) .25s; }
+.js .item.in .dot { transform: scale(1); }
+.js .item.in:hover .dot { transform: scale(1.25); transition-delay: 0s; transition-duration: .2s; }
+.js .mini li::before { transform: scale(0); transition: transform .5s cubic-bezier(.3, 1.7, .5, 1) .3s; }
+.js .mini li.in::before { transform: scale(1); }
+
+/* Tabs: panel and image fade when switching */
+.panel:not([hidden]), .rolepanel:not([hidden]) { animation: panelIn .45s var(--ease) both; }
+@keyframes panelIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.focus-img.swap { animation: imgIn .5s ease both; }
+@keyframes imgIn { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
+.tab, .role-tab { transition: background .25s, transform .2s var(--ease), box-shadow .2s; }
+.tab:hover, .role-tab:hover { transform: translateY(-2px); }
+.tab:active, .role-tab:active { transform: translateY(0); }
+
+/* Hover details */
+.nav a { transition: border-color .2s; }
+.cta { transition: box-shadow .2s, transform .2s var(--ease); }
+.cta:hover { transform: translateY(-2px); }
+.cta span { display: inline-block; transition: transform .2s var(--ease); }
+.cta:hover span { transform: translateX(5px); }
+.btn { transition: box-shadow .2s, transform .2s var(--ease); }
+.btn:hover { transform: translateY(-2px); }
+.btn .arr { transition: transform .2s var(--ease); }
+.btn.next:hover .arr { transform: translateX(5px); }
+.btn.prev:hover .arr { transform: translateX(-5px); }
+.chips li, .tags li, .skillchips li { transition: transform .2s var(--ease), box-shadow .2s; }
+.chips li:hover, .tags li:hover, .skillchips li:hover { transform: translateY(-2px); }
+.card, .edu li, .quote { transition: transform .3s var(--ease), box-shadow .3s; }
+.card:hover, .edu li:hover { transform: translateY(-4px); box-shadow: 0 12px 26px rgba(0, 0, 0, .18); }
+.shot img, .logo-shot img, .case-shot img { transition: transform .6s var(--ease); }
+.shot:hover img, .logo-shot:hover img { transform: scale(1.05); }
+.case-shot { overflow: hidden; }
+.case-shot:hover img { transform: scale(1.03); }
+.courses h4 { transition: transform .3s var(--ease); }
+.courses li:hover h4 { transform: translateX(10px); }
+.courses .tag { transition: background .2s, color .2s; }
+.courses li:hover .tag { background: var(--navy); color: #fff; }
+.mini li { transition: transform .3s var(--ease); }
+.mini li:hover { transform: translateY(-4px); }
+.ic { transition: background .2s, color .2s, transform .3s var(--ease); }
+a.c:hover .ic { background: var(--yellow); color: var(--navy); transform: scale(1.08); }
+.act-text { transition: border-color .2s; }
+.act:hover .act-text { border-left-color: var(--navy); }
+.footer a { transition: color .2s; }
+
+/* Respect the "reduce motion" setting */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .rv, .js .item .dot, .js .mini li::before { opacity: 1; transform: none; }
+  .js .bar.rv, .js .item .dotcol::before { transform: none; }
+  .js mark { background-size: 100% 100%; }
+}

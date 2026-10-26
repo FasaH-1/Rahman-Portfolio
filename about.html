@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Rahman | Ahmad Fadliansyah Rahman</title>
+<meta name="description" content="About Ahmad Fadliansyah Rahman: profile, core competencies, education, and related courses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  /* 1. Membuat kolom kiri dan kanan sejajar atas-bawah */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 32px;
+    align-items: stretch !important;
+    overflow: visible !important;
+  }
+
+  .about-grid > div:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .about-grid .edu {
+    margin-bottom: 0 !important;
+  }
+
+  /* 2. Kotak ungu sejajar atasnya dengan kartu About & bawahnya dengan Education */
+  .about-grid .avatar-panel {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    border-radius: 28px !important;
+    background: linear-gradient(135deg, #2b0548 0%, #1e0066 100%) !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15) !important;
+    overflow: visible !important;
+    clip-path: inset(-150px 0px 0px 0px round 28px) !important;
+  }
+
+  /* 3. KUNCI: Kaki menapak di bawah (bottom: 0) & badan diperbesar hingga kepala keluar di atas */
+  .about-grid .avatar-panel img {
+    position: absolute !important;
+    left: 50% !important;
+    top: auto !important;                   /* Matikan fungsi top sebelumnya */
+    bottom: -8px !important;                /* Kaki menapak pas di dasar kotak (gunakan -8px atau 0px jika ada ruang kosong tipis di bawah sepatu) */
+    transform: translateX(-50%) !important;
+    height: calc(100% + 85px) !important;   /* Tinggi karakter = 100% tinggi kotak + 85px kepala keluar di atas */
+    width: auto !important;                 /* Lebar otomatis proporsional mengikuti tinggi */
+    max-width: none !important;
+    object-fit: contain !important;
+  }
+
+  /* Responsif untuk layar HP/Tablet */
+  @media (max-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+    .about-grid .avatar-panel {
+      height: 460px !important;
+      max-width: 340px !important;
+      margin: 80px auto 0 !important;
+    }
+  }
+</style>
+<link rel="stylesheet" href="assets/motion.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body id="home">
+
+<nav class="nav" aria-label="Main">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" aria-current="page">About Rahman</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="project.html">Project</a></li>
+    <li><a href="activities.html">Activities</a></li>
+  </ul>
+</nav>
+
+<main>
+<section class="block">
+  <div class="wrap">
+    <h1 class="title">About <mark>Rahman</mark></h1>
+    <div class="bar"></div>
+    <div class="about-grid">
+      <div>
+        <div class="card">
+          <span class="pill">About</span>
+          <p>Final-year Business Management student with hands-on experience in market research, business analysis, and project execution. Ex-intern at Telkomsel in the SME GTM team, working with business data and dashboards to support data-driven decision-making. Experienced in transforming data into actionable insights through case studies and real-world projects using SQL, Python, Power BI, and Google Looker Studio. As a Founder, I have worked closely with cross-functional teams to deliver data-driven solutions, identify performance gaps, and support strategic decision-making while bridging business needs with analytical insights to produce measurable outcomes.</p>
+        </div>
+
+        <h3 class="sub">Core Competencies</h3><div class="bar"></div>
+        <ul class="chips soft">
+          <li>Project Management</li><li>Data Visualization</li><li>Strategic Management</li><li>Business Requirement &amp; Analysis</li><li>Design Thinking</li><li>Data Analysis</li>
+        </ul>
+
+        <h3 class="sub">Education</h3><div class="bar"></div>
+        <ul class="edu">
+          <li><b>SMAS Plus PGRI Cibinong</b>Social Science · 90.31/100<br><span>2019 to 2022</span></li>
+          <!-- GPA: the website said 3.71 but the CV says 3.66. Keep the correct one. -->
+          <li><b>Telkom University</b>Management Business Telecommunications and Informatics · 3.71/4.00<br><span>2022 to current</span></li>
+        </ul>
+      </div>
+      <!-- Gambar sudah diganti dari assets/hero.png menjadi assets/about-avatar.png (baju batik) -->
+      <div class="avatar-panel"><img src="assets/about-avatar.png" alt="Illustration of Rahman in a batik shirt" loading="lazy"></div>
+    </div>
+
+    <div class="courses-wrap">
+      <div>
+        <h2 class="title" style="font-size:34px">Related<br>Courses</h2>
+        <div class="bar" style="height:5px;width:200px;margin:8px 0 12px;background:var(--purple-solid)"></div>
+        <p>Coursework that built the foundation for my approach to business analysis, data-driven decision-making, and project execution.</p>
+      </div>
+      <ul class="courses">
+        <li><h4>Design Thinking</h4><small>User research to prototype</small><span class="tag">Critical Thinking</span></li>
+        <li><h4>Management Strategic</h4><small>Competitive analysis and direction</small><span class="tag">Strategy Thinking</span></li>
+        <li><h4>Management Operation</h4><small>Processes, capacity, efficiency</small><span class="tag">Operation</span></li>
+        <li><h4>Big Data and Analytics</h4><small>Turning data into decisions</small><span class="tag">Data</span></li>
+        <li><h4>Project Management</h4><small>Scope, schedule, team, delivery</small><span class="tag">Operation</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="ending" aria-labelledby="collab">
+  <div class="wrap">
+   <div class="ending-grid">
+    <div>
+      <h2 class="title" id="collab">Let’s Collaborate!</h2>
+      <div class="bar" style="margin-bottom:18px"></div>
+      <p class="lead" style="margin-bottom:24px">Business Analyst and Business Intelligence Enthusiast</p>
+      <ul class="contacts">
+        <li><a class="c" href="https://github.com/FasaH-1" target="_blank" rel="noopener"><span class="ic" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></span><span><span class="clab">GitHub</span><span class="val">github.com/FasaH-1</span></span></a></li>
+        <li><!-- Replace # with your LinkedIn profile link --><a class="c" href="https://www.linkedin.com/in/fadliansyahrahman" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">in</span><span><span class="clab">LinkedIn</span><span class="val">Ahmad Fadliansyah Rahman</span></span></a></li>
+        <li><a class="c" href="mailto:fadliansyahfadel01@gmail.com"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><span class="clab">Email</span><span class="val">fadliansyahfadel01@gmail.com</span></span></a></li>
+        <li><div class="c"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><span class="clab">Location</span><span class="val">South Jakarta, Jakarta</span></span></div></li>
+      </ul>
+    </div>
+    <figure class="quote"><p>Success in business is not about how much money you make but about the difference you make in people’s lives.”</p></figure>
+   </div>
+    <nav class="pager" aria-label="Page navigation"><a class="btn prev" href="index.html"><span class="arr" aria-hidden="true">←</span><span><small>Previous</small>Home</span></a><a class="btn next" href="experience.html"><span><small>Next</small>Experience</span><span class="arr" aria-hidden="true">→</span></a></nav>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© 2026 Ahmad Fadliansyah Rahman. All rights reserved.</span>
+    <a href="#home">Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script src="assets/motion.js"></script>
+</body>
+</html>
